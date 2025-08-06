@@ -1,0 +1,96 @@
+<!-- 데이터 그리드 만들어보기 Table -->
+<div class="flex flex-col w-full h-full p-5 gap-3">
+  <div class="grid grid-cols-1">
+    <div class="flex flex-col w-full">
+      <div class="flex w-full justify-between items-center">
+        <label
+          class="focus-within:input-primary input flex justify-between items-center gap-2 w-full border-gray-400"
+        >
+          <input
+            appinput
+            type="text"
+            placeholder="검색어를 입력해주세요."
+            required
+            class="border rounded border-gray-400 p-1 focus:outline-none focus:border-blue-500 text-sm"
+          />
+          <div class="flex items-center gap-2">
+            <button
+              type="button"
+              class="inline-block bg-blue-400 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600 transition ml-auto shrink-0"
+            >
+              + 등록
+            </button>
+            <button class="btn btn-square btn-ghost btn-sm">
+              <img
+                src="https://api.iconify.design/vscode-icons:file-type-excel2.svg"
+                class="w-6 h-6"
+              />
+            </button>
+          </div>
+        </label>
+      </div>
+      <div class="flex w-full justify-between items-center">
+        <div class="flex w-full justify-between items-center">
+          <div
+            class="flex items-center gap-1 border rounded-2xl bg-blue-400 text-white font-semibold p-1 px-2"
+          >
+            <span>생성일시</span>
+          </div>
+          <img
+            src="https://img.icons8.com/?size=100&id=102729&format=png&color=000000"
+            class="w-4 h-4"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 테이블 -->
+  <div class="w-full">
+    <table class="table-auto text-center w-full">
+      <thead class="bg-gray-100 border-b border-gray-300">
+        <tr class="grid grid-cols-5">
+          <th class="px-4 py-2">순번</th>
+          <th class="px-4 py-2">기업명</th>
+          <th class="px-4 py-2">사업자등록번호</th>
+          <th class="px-4 py-2">대표 연락처</th>
+          <th class="px-4 py-2">대표 이메일</th>
+        </tr>
+      </thead>
+      <tbody class="border-b border-gray-300">
+        @for(company of companies; track $index){
+        <tr class="grid grid-cols-5">
+          <td class="px-4 py-2">{{$index + 1}}</td>
+          <td class="px-4 py-2">{{company.name}}</td>
+          <td class="px-4 py-2">{{company.description}}</td>
+          <td class="px-4 py-2">{{company.contact}}</td>
+          <td class="px-4 py-2">{{company.businessNumber}}</td>
+        </tr>
+
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <div class="flex w-full justify-between items-center">
+    <!-- 왼쪽 그룹 -->
+    <p class="font-semibold theme-text">
+      전체
+      <span class="text-blue-500 ml-1">2</span>
+    </p>
+
+    <!-- 오른쪽 그룹 -->
+    <div class="flex items-center gap-3">
+      <div
+        class="aspect-square w-full h-full rounded-lg bg-blue-400 flex p-2.5 font-semibold justify-center items-center text-white"
+      >
+        1
+      </div>
+      <select class="border px-2 py-1 rounded">
+        <option value="">선택</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </div>
+  </div>
+</div>
